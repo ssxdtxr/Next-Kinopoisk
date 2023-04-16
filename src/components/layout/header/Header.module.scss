@@ -1,0 +1,38 @@
+$assets: lighten(#fc4337, 5%);
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000000;
+  padding: 20px 200px;
+  color: #fff;
+  .logo {
+    display: flex;
+    h1 {
+      text-transform: uppercase;
+      text-shadow: 0 0 5px #b393d3, 0 0 10px #b393d3, 0 0 10px #b393d3, 0 0 20px #b393d3;
+    }
+  }
+  .nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    li {
+      cursor: pointer;
+      font-size: 20px;
+      transition: color .15s ease-in-out;
+      &:hover {
+        color: $assets;
+      }
+      &:active {
+        color: #fff;
+        border-bottom: 2px solid $assets;
+      }
+    }
+  }
+}
