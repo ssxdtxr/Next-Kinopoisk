@@ -5,7 +5,7 @@ export interface IInfoIFilm {
     nameEn: string | null,
     nameOriginal: string | null
     countries: string,
-    genres: string[]
+    genres: {genre: string}[]
     ratingKinopoisk: number | null,
     ratingImdb: number | null,
     year: number | null,

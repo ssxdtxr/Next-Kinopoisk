@@ -1,0 +1,45 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  height: 350px;
+  width: 600px;
+  padding: 20px;
+  //border: 1px solid #000;
+  box-shadow: 1px 3px 6px rgba(0, 0, 0, .15);
+  .filmImage {
+    border-radius: 10px;
+    &:hover {
+      transform: scale(.9);
+    }
+  }
+  .info {
+    padding-bottom: 100px;
+    .filmName {
+      font-size: 27px;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+    .genres {
+      padding-top: 10px;
+      font-size: 20px;
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      opacity: .5;
+      .genreItem {
+        border: 1px dashed #fff;
+        padding: 5px;
+        align-items: center;
+      }
+    }
+    .rate {
+      padding-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+}
