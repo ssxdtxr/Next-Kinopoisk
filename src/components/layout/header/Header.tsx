@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {FC} from 'react';
 import styles from "./Header.module.scss"
 import Image from "next/image";
 import logo from "../../../../public/logo.png"
 import Link from "next/link";
-export const  Header = () => {
+export const Header = () => {
     return (
         <header className={styles.header}>
             <a href="/" className={styles.logo}>
