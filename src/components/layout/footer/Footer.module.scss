@@ -40,6 +40,10 @@ $assets: lighten(#fc4337, 5%);
       }
     }
     .followUs {
+      div {
+        display: flex;
+        align-items: center;
+      }
       a {
         opacity: .7;
         transition: opacity .2s ease-in-out;

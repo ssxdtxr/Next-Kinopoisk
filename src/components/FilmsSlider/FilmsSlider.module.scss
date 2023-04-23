@@ -1,9 +1,9 @@
 .card {
-  width: 156px;
   .img {
     position: relative;
     height: 230px;
     width: 156px;
+    margin: 10px;
     .rating {
       display: flex;
       gap: 5px;
@@ -27,10 +27,10 @@
     justify-content: center;
     width: 100%;
     gap: 5px;
-    padding: 10px 0;
+    padding: 10px;
     svg {
       position: absolute;
-      left: 0;
+      left: 10px;
     }
     .descr {
       width: 100%;
@@ -47,9 +47,11 @@
         }
       }
       .year {
+        margin-top: 5px;
         text-align: center;
         font-size: 15px;
       }
     }
   }
+
 }

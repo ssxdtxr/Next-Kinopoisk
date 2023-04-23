@@ -1,0 +1,22 @@
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  .paginationItem {
+    display: flex;
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid blue;
+    &:hover {
+      background-color: #fff;
+    }
+  }
+  .activePage {
+    background-color: red;
+    color: #000;
+  }
+}
