@@ -1,35 +1,129 @@
-.wrapper {
+.film {
   display: flex;
-  gap: 20px;
-  height: 700px;
-  width: 1000px;
-  margin: 0 auto;
-  border-radius: 30px;
-  padding: 50px;
-  .poster {
-    border-radius: 20px;
-  }
+  gap: 30px;
+  background-color: #101010;
+  padding: 30px;
+
   .info {
-    .title {
-      font-size: 34px;
+    h1 {
+      font-size: 30px;
+      margin-bottom: 5px;
     }
-    .infoH {
-      padding-top: 15px;
-      font-size: 20px;
-      opacity: .5;
+
+    h2 {
+      color: #FFFFFFCC;
+      font-size: 16px;
+      padding: 5px 0;
     }
-    .mainInfo {
-      padding-top: 20px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+
+    .infoNum {
+      font-size: 15px;
+      margin-top: 5px;
+
+      .year {
+        color: #FFFFFF47
+      }
+
+      span {
+        padding-right: 15px;
+        color: #FFFFFF99;
+      }
+    }
+
+    .rating {
+      display: flex;
+      padding: 10px 0;
+      margin: 10px 0;
       align-items: center;
-      h4 {
-        width: max-content;
+      gap: 10px;
+
+      .numbRate {
+        font-size: 27px;
+        padding: 10px;
+        background-color: #232323;
+      }
+    }
+
+    .genres {
+      font-size: 15px;
+
+      .genre {
+        padding-right: 13px;
+      }
+
+      .genreNext {
+        padding: 0 13px;
+        border-left: 2px solid #fc4337;
       }
     }
   }
-
 }
+
+.video {
+  padding: 25px 40px;
+  background-color: #101010;
+  margin-top: 5px;
+}
+
+.desctiption {
+  padding: 25px 40px;
+  background-color: #101010;
+  margin-top: 5px;
+
+  h2 {
+    padding: 5px 0 15px;
+  }
+
+  .descr {
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, .6);;
+  }
+
+  .infoOther {
+    display: flex;
+    gap: 10px;
+    border-top: 2px solid #191919;
+    padding-top: 15px;
+    margin-bottom: 15px;
+    align-items: center;
+    h4 {
+      width: 250px;
+      font-weight: normal;
+    }
+
+    .rate {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      background-color: rgba(255,255,255,.2);
+      padding: 2px 10px;
+      border-radius: 5px;
+      span {
+        color: rgba(255, 255, 255, .6);
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

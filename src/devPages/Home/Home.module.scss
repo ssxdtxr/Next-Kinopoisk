@@ -1,4 +1,23 @@
 .main {
   text-align: center;
-  padding-top: 50px;
+  padding-top: 30px;
+}
+
+.infoFilms {
+  margin-top: 30px;
+  padding: 30px 45px;
+  background-color: #101010;
+  border-radius: 10px;
+  h2 {
+    border-left: 4px solid #fc4337;
+    padding-left: 10px;
+    margin-bottom: 10px;
+  }
+  .popular {
+    border-bottom: 1px solid gray;
+    padding-bottom: 30px;
+  }
+  .films {
+    padding-top: 30px;
+  }
 }

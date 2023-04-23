@@ -30,7 +30,7 @@ export interface IFilmData {
     editorAnnotation: string | null
     isTicketsAvailable: boolean
     productionStatus: string | null
-    type: string
+    type: string[]
     ratingMpaa: string | null
     ratingAgeLimits: string | null
     hasImax: boolean | null

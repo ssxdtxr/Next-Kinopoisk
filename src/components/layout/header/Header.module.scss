@@ -8,14 +8,14 @@ $assets: lighten(#fc4337, 5%);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #ffffff;
+  background-color: #000;
   padding: 20px 200px;
-  color: #000;
+  color: #fff;
   z-index: 2;
-  //background-color: rgba(0,0,0,.08);
   box-shadow: 0 1px 0 hsla(0,0%,100%,.16);
   .logo {
     display: flex;
+    align-items: center;
     h1 {
       text-transform: uppercase;
       text-shadow: 0 0 5px #b393d3, 0 0 10px #b393d3, 0 0 10px #b393d3, 0 0 20px #b393d3;

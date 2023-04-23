@@ -1,69 +1,97 @@
-import React, {FC} from 'react';
-import {IFilmPage} from "@/pages/films/[id]";
-import styles from "./Film.module.scss"
-import {Layout} from "@/components/layout/Layout";
-import {Container} from "@/components/container/Container";
-import Image from "next/image";
+import React, { FC } from 'react';
+import { IFilmPage } from '@/pages/film/[id]';
+import styles from './Film.module.scss';
+import { Layout } from '@/components/layout/Layout';
+import { Container } from '@/components/container/Container';
+import Image from 'next/image';
+import star from '../../../public/filmItem/star.svg';
+import starEmpty from '../../../public/filmItem/star-empty.svg';
+import { IActorsData } from '@/types/IActorsData';
+import { determinateFilmName } from '@/helpers/determinateFilmName';
+import { determinateRating } from '@/helpers/determinateHighRating';
 
-const determinateFilmName = (film: any): string => {
-    if (film.nameOriginal) {
-        return film.nameOriginal
-    }
-    if (film.nameRu) {
-        return film.nameOriginal
-    }
-    return film.nameEn
-}
+const determinateProfession = (actorsData: IActorsData[], profession: string) => {
+  return actorsData.filter(actor => actor.professionText === profession);
+};
 
 
-export const Film: FC<IFilmPage> = ({filmData, actorsData}) => {
-    console.log(filmData, actorsData)
-    console.log(filmData.filmLength)
-    console.log(filmData.description)
-    const mainName = determinateFilmName(filmData)
-    return (
-        <Layout
-            description="Поиск фильмов и многое другое."
-            keywords="Топ 250 фильмов, Бестселлеры"
-            title="NextKinopoisk"
-        >
-            <Container>
-                <div className={styles.wrapper}>
-                    <Image className={styles.poster} width={280} height={420} src={filmData.posterUrl} alt="posterUrl" />
-                    <div className={styles.info}>
-                        <h1 className={styles.title}>{mainName}</h1>
-                        <div className={styles.infoH}>
-                            {
-                                filmData.countries.map(country => country.country).join(", ")
+export const Film: FC<IFilmPage> = ({ filmData, actorsData }) => {
+  console.log(filmData);
+  const mainName = determinateFilmName(filmData);
+  const actors = determinateProfession(actorsData, 'Актеры');
+  const filmDirector = determinateProfession(actorsData, 'Режиссеры');
+  return (
+    <Layout
+      description={filmData.nameEn ?? '' }
+      keywords={filmData.description ?? ''}
+      title={determinateFilmName(filmData)}
+    >
+      <Container>
+        <div className={styles.film}>
+          <Image width={140} height={210} src={filmData.posterUrl} alt='poster' />
+          <div className={styles.info}>
+            <h1>{determinateFilmName(filmData)}</h1>
+            <h2>{filmData.shortDescription}</h2>
+            <div className={styles.infoNum}>
+              <span className={styles.year}>{filmData.startYear ?? filmData.year}</span>
+              <span>{filmData.countries.map(country => country.country)}</span>
+              <span>{filmData.filmLength} Мин.</span>
+              <span></span>
+            </div>
+            <div className={styles.rating}>
+              <span className={styles.numbRate}>{determinateRating(filmData)}</span>
+              {
+                [...Array(10)].map((_, index) => index <= (Math.floor(determinateRating(filmData)) - 1) ?
+                  <Image key={index} width={25} height={25} src={star} alt='star' />
+                  :
+                  <Image key={index} width={25} height={25} src={starEmpty} alt='starEmpty' />,
+                )
+              }
+            </div>
+            <div className={styles.genres}>
+              {
+                filmData.genres.map((genre, index) => index === 0 ?
+                  <span className={styles.genre}>{genre.genre[0].toUpperCase() + genre.genre.substring(1)}</span> :
+                  <span className={styles.genreNext}>{genre.genre[0].toUpperCase() + genre.genre.substring(1)}</span>,
+                )}
+            </div>
+          </div>
+        </div>
+        <div className={styles.video}>
+          video
+        </div>
+        <div className={styles.desctiption}>
+          <h2>Описание фильма {determinateFilmName(filmData)}</h2>
+          <div className={styles.descr}>
+            {filmData.description}
+          </div>
+          {
+            filmData.nameOriginal ?
+              <div className={styles.infoOther}>
+                <h4>Оригинальное название</h4>
+                <span>{filmData.nameOriginal}</span>
+              </div>
+              :
+              ''
+          }
+          <div className={styles.infoOther}>
+            <h4>IMDb Рейтинг</h4>
+            <div className={styles.rate}>
+              <Image width={15} height={15} src={star} alt='star' />
+              <span>{determinateRating(filmData)}</span>
+            </div>
 
-                            },
-                            {
-                                `${filmData.filmLength} минут`
-                            }
-                            <div className={styles.genres}>
-                                {
-                                    filmData.genres.map(item => item.genre).join(", ")
-                                }
-                            </div>
-                        </div>
-                        <div className={styles.mainInfo}>
-                            <h4>Старт проката:</h4>
-                            <div>{filmData.startYear ? filmData.startYear : "??"}</div>
-                            <h4>Режиссер:</h4>
-                            <div>{actorsData.filter(actor => actor.professionText === "Режиссеры").map(item => item.nameEn).join(", ")}</div>
-                            <h4>В главных ролях:</h4>
-                            <div>{actorsData.filter(actor => actor.professionText === "Актеры").map(item => item.nameEn).join(", ")}</div>
-                        </div>
-                        <div className={styles.descr}>
-                            {
-                                filmData.description
-                            }
-                        </div>
-
-                    </div>
-                </div>
-            </Container>
-        </Layout>
-    );
+          </div>
+          <div className={styles.infoOther}>
+            <h4>IMDb Рейтинг</h4>
+            <div className={styles.rate}>
+              <Image width={15} height={15} src={star} alt='star' />
+              <span>{filmData.ratingImdb}</span>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Layout>
+  );
 };
 
