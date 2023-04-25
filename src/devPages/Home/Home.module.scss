@@ -16,8 +16,14 @@
   .popular {
     border-bottom: 1px solid gray;
     padding-bottom: 30px;
+    h2 {
+      margin-bottom: 20px;
+    }
   }
   .films {
     padding-top: 30px;
+    h2 {
+      margin-bottom: 20px;
+    }
   }
 }

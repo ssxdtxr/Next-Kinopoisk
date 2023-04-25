@@ -9,14 +9,15 @@ import starEmpty from '../../../public/filmItem/star-empty.svg';
 import { IActorsData } from '@/types/IActorsData';
 import { determinateFilmName } from '@/helpers/determinateFilmName';
 import { determinateRating } from '@/helpers/determinateHighRating';
+import { ActorsSlider } from '@/components/ActorsSlider/ActorsSlider';
+import { FilmsHighRatingSlider } from '@/components/FilmsHighRatingSlider/FilmsHighRatingSlider';
 
 const determinateProfession = (actorsData: IActorsData[], profession: string) => {
   return actorsData.filter(actor => actor.professionText === profession);
 };
 
 
-export const Film: FC<IFilmPage> = ({ filmData, actorsData }) => {
-  console.log(filmData);
+export const Film: FC<IFilmPage> = ({ filmData, actorsData, top}) => {
   const mainName = determinateFilmName(filmData);
   const actors = determinateProfession(actorsData, 'Актеры');
   const filmDirector = determinateProfession(actorsData, 'Режиссеры');
@@ -90,6 +91,15 @@ export const Film: FC<IFilmPage> = ({ filmData, actorsData }) => {
             </div>
           </div>
         </div>
+        <div className={styles.actors}>
+          <h2>Популярные Актеры фильма</h2>
+          <ActorsSlider actorsData={actorsData} />
+        </div>
+        <div className={styles.recommend}>
+          <h2>Советуем посмотреть</h2>
+          <FilmsHighRatingSlider top={top} />
+        </div>
+
       </Container>
     </Layout>
   );

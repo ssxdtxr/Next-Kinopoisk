@@ -3,12 +3,12 @@ import Slider from 'react-slick';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { IFilm } from '@/types/IFilm';
-import { determinateRating } from '@/helpers/determinateHighRating';
 import { FilmItem } from '@/components/FilmItem/FilmItem';
+import { ITopFilms } from '@/types/ITopFilms';
+
 
 export interface IFilmsSlider {
-  filmsData: IFilm;
+  top: ITopFilms;
 }
 
 const settings = {
@@ -51,13 +51,13 @@ const settings = {
 };
 
 
-export const FilmsHighRatingSlider: FC<IFilmsSlider> = ({ filmsData }) => {
+export const FilmsHighRatingSlider: FC<IFilmsSlider> = ({ top }) => {
+  console.log(top);
   return (
     <Slider {...settings}>
       {
-        filmsData.items.filter(item => determinateRating(item) > 8).map(item => <FilmItem film={item} />)
+        top.films.map(item => <FilmItem film={item} />)
       }
     </Slider>
   );
-
 };
