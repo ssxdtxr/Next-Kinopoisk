@@ -6,6 +6,7 @@ import Image from 'next/image';
 import styles from './Actor.module.scss';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
+import { ActorsSlider } from '@/components/ActorsSlider/ActorsSlider';
 
 export const Actor: FC<IActor> = ({ actorData }) => {
   return (

@@ -19,12 +19,17 @@ export const FilmItem: FC<IFilmItem> = ({ film }) => {
         <Link key={film.nameEn} href={`/film/${film.kinopoiskId}`}>
           <Image layout='fill' src={film.posterUrl} alt={film.nameEn ?? ''} />
         </Link>
-        <div className={styles.rating}>
-          <Image width={13} height={13} src={star} alt='star' />
-          <div>
-            {determinateRating(film)}
-          </div>
-        </div>
+        {
+          determinateRating(film) ?
+            <div className={styles.rating}>
+              <Image width={13} height={13} src={star} alt='star' />
+              <div>
+                {determinateRating(film)}
+              </div>
+            </div>
+            :
+            ""
+        }
       </div>
       <div className={styles.info}>
         <svg

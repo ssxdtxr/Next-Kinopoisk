@@ -9,18 +9,18 @@ import { IActorsData } from '@/types/IActorsData';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ActorsSlider.module.scss';
-import next from "../../../public/arrow-right.svg"
-import prev from "../../../public/arrow-left.svg"
+import next from '../../../public/arrow-right.svg';
+import prev from '../../../public/arrow-left.svg';
 
 export interface IActorSlider {
-  actorsData: IActorsData[]
+  actorsData: IActorsData[];
 }
 
 function ActorNextArrow(props: any) {
   const { onClick } = props;
   return (
-    <div className={styles.next} onClick={onClick} >
-      <Image width={50} height={50} src={next} alt="next" />
+    <div className={styles.next} onClick={onClick}>
+      <Image width={50} height={50} src={next} alt='next' />
     </div>
   );
 }
@@ -28,18 +28,18 @@ function ActorNextArrow(props: any) {
 function ActorPrevArrow(props: any) {
   const { onClick } = props;
   return (
-    <div className={styles.prev} onClick={onClick} >
-      <Image width={50} height={50} src={prev} alt="prev" />
+    <div className={styles.prev} onClick={onClick}>
+      <Image width={50} height={50} src={prev} alt='prev' />
     </div>
   );
 }
 
 const settings = {
-  dots: true,
+  dots: false,
   arrows: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 3,
+  slidesToShow: 5,
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 2000,
@@ -52,40 +52,43 @@ const settings = {
         slidesToShow: 3,
         slidesToScroll: 3,
         infinite: true,
-        dots: true
-      }
+        dots: true,
+      },
     },
     {
       breakpoint: 600,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
-        initialSlide: 2
-      }
+        initialSlide: 2,
+      },
     },
     {
       breakpoint: 480,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 export const ActorsSlider: FC<IActorSlider> = ({ actorsData }) => {
   return (
     <Slider {...settings}>
       {
-        actorsData.slice(0, 19).map(actor => (
-          <Link key={actor.nameEn} href={`/actor/${actor.staffId}`}>
+        actorsData.map(actor => actor.nameEn || actor.nameRu ? (
             <div className={styles.actorItem}>
-              <div className={styles.actorImg}>
-                <Image layout='fill' src={actor.posterUrl} alt={actor.nameEn || ''} />
-              </div>
-              <div className={styles.name}>{actor.nameEn}</div>
+              <Link key={actor.nameEn} href={`/actor/${actor.staffId}`}>
+
+                <div className={styles.img}>
+                  <Image width={200} height={250} src={actor.posterUrl} alt={actor.nameEn || ''} />
+                </div>
+                <div className={styles.name}>{actor.nameEn}</div>
+              </Link>
+
             </div>
-          </Link>
-        ))
+          )
+          : '')
       }
     </Slider>
   );

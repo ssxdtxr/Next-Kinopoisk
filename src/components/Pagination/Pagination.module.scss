@@ -2,21 +2,25 @@
   margin-top: 20px;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 20px;
+  padding: 20px;
   .paginationItem {
     display: flex;
-    width: 20px;
-    height: 20px;
+    width: 48px;
+    height: 36px;
     align-items: center;
     justify-content: center;
-    border: 1px solid blue;
+    font-size: 15px;
+    border: 1px solid #000;
+    color: #fff;
+    background-color: #0e0e0e;
     &:hover {
-      background-color: #fff;
+      background-color: #000;
+      color: red;
     }
   }
   .activePage {
-    background-color: red;
-    color: #000;
+    background-color: #000;
+    color: red;
   }
 }
