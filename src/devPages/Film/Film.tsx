@@ -25,17 +25,17 @@ export const Film: FC<IFilmPage> = ({ filmData, actorsData, top}) => {
     <Layout
       description={filmData.nameEn ?? '' }
       keywords={filmData.description ?? ''}
-      title={determinateFilmName(filmData)}
+      title={mainName}
     >
       <Container>
         <div className={styles.film}>
           <Image width={140} height={210} src={filmData.posterUrl} alt='poster' />
           <div className={styles.info}>
-            <h1>{determinateFilmName(filmData)}</h1>
+            <h1>{mainName}</h1>
             <h2>{filmData.shortDescription}</h2>
             <div className={styles.infoNum}>
               <span className={styles.year}>{filmData.startYear ?? filmData.year}</span>
-              <span>{filmData.countries.map(country => country.country)}</span>
+              <span>{filmData.countries.map(country => country.country).join(", ")}</span>
               <span>{filmData.filmLength} Мин.</span>
               <span></span>
             </div>
