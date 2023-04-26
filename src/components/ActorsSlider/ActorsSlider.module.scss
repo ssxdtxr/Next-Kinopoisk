@@ -3,18 +3,27 @@
   .img {
     display: flex;
     justify-content: center;
+    .imgСhange {
+      border-radius: 50%;
+    }
   }
-  .name {
+  .name,
+  .profession {
     display: flex;
     justify-content: center;
     padding-top: 10px;
     font-size: 20px;
   }
+  .profession {
+    font-size: 18px;
+    color: rgba(199, 199, 199, 0.78);;
+  }
+
 }
 .next {
   cursor: pointer;
   position: absolute;
-  top: 35%;
+  top: -25%;
   right: -30px;
   padding: 10px;
   background-color: #000;
@@ -28,7 +37,6 @@
   background-color: #000;
   border-radius: 50%;
   align-items: center;
-  top: 35%;
-  left: -30px;
-  z-index: 2;
+  top: -25%;
+  right: 60px;
 }

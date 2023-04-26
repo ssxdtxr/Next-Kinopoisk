@@ -126,6 +126,31 @@
   }
 }
 
+.facts {
+  padding: 25px 40px;
+  background-color: #101010;
+  margin-top: 5px;
+  h2 {
+    padding: 5px 0 15px;
+  }
+  .fact {
+    padding-bottom: 10px;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.6);
+    letter-spacing: .6px;
+    line-height: 20px;
+    &::before {
+      display: inline-block;
+      content: '';
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      background-color: #fc4337;
+      margin: 0 5px;
+    }
+  }
+}
+
 
 
 

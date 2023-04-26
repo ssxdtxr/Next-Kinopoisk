@@ -20,7 +20,7 @@ function ActorNextArrow(props: any) {
   const { onClick } = props;
   return (
     <div className={styles.next} onClick={onClick}>
-      <Image width={50} height={50} src={next} alt='next' />
+      <Image width={25} height={25} src={next} alt='next' />
     </div>
   );
 }
@@ -29,7 +29,7 @@ function ActorPrevArrow(props: any) {
   const { onClick } = props;
   return (
     <div className={styles.prev} onClick={onClick}>
-      <Image width={50} height={50} src={prev} alt='prev' />
+      <Image width={25} height={25} src={prev} alt='prev' />
     </div>
   );
 }
@@ -73,17 +73,18 @@ const settings = {
   ],
 };
 export const ActorsSlider: FC<IActorSlider> = ({ actorsData }) => {
+  console.log(actorsData)
   return (
     <Slider {...settings}>
       {
         actorsData.map(actor => actor.nameEn || actor.nameRu ? (
             <div className={styles.actorItem}>
               <Link key={actor.nameEn} href={`/actor/${actor.staffId}`}>
-
                 <div className={styles.img}>
-                  <Image width={200} height={250} src={actor.posterUrl} alt={actor.nameEn || ''} />
+                  <Image className={styles.imgСhange} width={200} height={200} src={actor.posterUrl} alt={actor.nameEn || ''} />
                 </div>
                 <div className={styles.name}>{actor.nameEn}</div>
+                <div className={styles.profession}>{actor.professionText.slice(0, -1)}</div>
               </Link>
 
             </div>

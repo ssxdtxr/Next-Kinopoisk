@@ -17,10 +17,9 @@ const determinateProfession = (actorsData: IActorsData[], profession: string) =>
 };
 
 
-export const Film: FC<IFilmPage> = ({ filmData, actorsData, top}) => {
+export const Film: FC<IFilmPage> = ({ filmData, actorsData, top, video, facts}) => {
+  console.log(facts)
   const mainName = determinateFilmName(filmData);
-  const actors = determinateProfession(actorsData, 'Актеры');
-  const filmDirector = determinateProfession(actorsData, 'Режиссеры');
   return (
     <Layout
       description={filmData.nameEn ?? '' }
@@ -59,7 +58,7 @@ export const Film: FC<IFilmPage> = ({ filmData, actorsData, top}) => {
           </div>
         </div>
         <div className={styles.video}>
-          video
+          <video width={1080} src={video} controls></video>
         </div>
         <div className={styles.desctiption}>
           <h2>Описание фильма {determinateFilmName(filmData)}</h2>
@@ -81,7 +80,6 @@ export const Film: FC<IFilmPage> = ({ filmData, actorsData, top}) => {
               <Image width={15} height={15} src={star} alt='star' />
               <span>{determinateRating(filmData)}</span>
             </div>
-
           </div>
           <div className={styles.infoOther}>
             <h4>IMDb Рейтинг</h4>
@@ -91,6 +89,17 @@ export const Film: FC<IFilmPage> = ({ filmData, actorsData, top}) => {
             </div>
           </div>
         </div>
+        {
+          facts.total ?
+              <div className={styles.facts}>
+                <h2>Интересные факты о фильме</h2>
+                {
+                  facts.items.map(item => <div className={styles.fact}>{item.text}</div>)
+                }
+              </div>
+              :
+              ""
+        }
         <div className={styles.actors}>
           <h2>Популярные Актеры фильма</h2>
           <ActorsSlider actorsData={actorsData} />
@@ -99,7 +108,6 @@ export const Film: FC<IFilmPage> = ({ filmData, actorsData, top}) => {
           <h2>Советуем посмотреть</h2>
           <FilmsHighRatingSlider top={top} />
         </div>
-
       </Container>
     </Layout>
   );
