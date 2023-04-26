@@ -47,9 +47,13 @@ $assets: lighten(#fc4337, 5%);
       background-color: #fff;
       gap: 5px;
       padding: 0 2px;
+      width: 200px;
+      border-radius: 10px;
       input {
+        width: 90%;
         font-size: 18px;
         padding: 10px;
+        margin-left: 5px;
         &:focus {
           &::placeholder {
             opacity: 0;

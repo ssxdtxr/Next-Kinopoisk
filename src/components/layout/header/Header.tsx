@@ -41,8 +41,8 @@ export const Header = () => {
                     <li>Contacts</li>
                 </ul>
                 <div className={styles.search}>
-                    <Image width={25} height={25} src={search} alt="search" />
                     <input placeholder="Поиск" type="text"/>
+                    <Image width={25} height={25} src={search} alt="search" />
                 </div>
             </nav>
         </header>
