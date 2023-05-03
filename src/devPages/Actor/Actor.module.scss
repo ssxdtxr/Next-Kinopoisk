@@ -1,54 +1,81 @@
 .actor {
   padding-top: 50px;
+  padding-bottom: 50px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 50px;
   font-size: 20px;
+  background-color: #202020;
+  border-radius: 10px;
+  align-items: center;
 
   .img {
     border-radius: 20px;
   }
 
   .info {
-    h1 {
-      font-size: 40px;
-    }
-    .nameRu {
-      opacity: .5;
-      font-size: 20px;
-    }
-    h2 {
-      margin-top: 10px;
-    }
-    .about {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      align-items: center;
-      gap: 20px;
-      font-size: 15px;
-      margin-top: 15px;
-      box-shadow: 3px 6px 9px rgba(0, 0, 0, .15);
-      padding: 10px;
+    background-color: #a6aab1;
+    padding: 20px;
+    border-radius: 10px;
+
+    .name {
+      background-color: #101010;
       border-radius: 10px;
-      div {
-        width: max-content;
+      padding: 10px;
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .nameRu {
         opacity: .5;
+        font-size: 20px;
       }
     }
 
+    .person {
+      background-color: #101010;
+      border-radius: 10px;
+      padding: 10px;
+      margin-top: 10px;
+
+      .about {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        gap: 20px;
+        font-size: 15px;
+        margin-top: 15px;
+        box-shadow: 3px 6px 9px rgba(0, 0, 0, .15);
+
+        div {
+          width: max-content;
+          opacity: .5;
+        }
+      }
+    }
   }
 }
-.films{
-  margin-top: 80px;
-  margin-left: 30px;
+
+.films {
   display: flex;
   flex-direction: column;
+  background-color: #101010;
+  padding: 5px;
+  margin-top: 10px;
+  border-radius: 10px;
+
   h2 {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
+
   div {
+    margin-left: 20px;
+    background-color: #101010;
     margin-bottom: 10px;
-    font-size: 15px;
-    padding: 5px;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 10px;
+    width: max-content;
   }
 }
