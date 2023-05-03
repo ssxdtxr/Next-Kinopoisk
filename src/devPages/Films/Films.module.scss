@@ -3,11 +3,19 @@
   padding: 20px;
   margin-top: 30px;
   margin-bottom: 20px;
-  .title {
-    border-left: 4px solid #fc4337;
-    padding-left: 10px;
+
+  .mainTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-bottom: 20px;
+
+    .title {
+      border-left: 4px solid #fc4337;
+      padding-left: 10px;
+    }
   }
+
   .item {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -19,17 +27,20 @@
 
 .descr {
   padding-top: 20px;
+
   div {
     margin-top: 20px;
+
     h1 {
-      color: rgba(255,255,255,.8);
+      color: rgba(255, 255, 255, .8);
       font-size: 26px;
       letter-spacing: .13px;
       font-weight: 400;
     }
+
     p {
       margin: 5px 12px 10px 15px;
-      color: rgba(199,199,199,.78);
+      color: rgba(199, 199, 199, .78);
       letter-spacing: 1px;
       line-height: 23px;
     }

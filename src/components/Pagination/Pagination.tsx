@@ -16,7 +16,7 @@ export const Pagination: FC<IPagination> = ({ totalPages, link }) => {
       <span>Страница {router.query.page} из {totalPages}</span>
       {
         [...new Array(totalPages)].map((_, index) => (
-          <Link href={`${link}/${index + 1}`}>
+          <Link key={index} className={styles.i} href={`${link}/${index + 1}`}>
 
             <li className={cn(styles.paginationItem, router.query?.page as string == String(index + 1)
               && styles.activePage)}

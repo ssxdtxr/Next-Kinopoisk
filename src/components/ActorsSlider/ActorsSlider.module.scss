@@ -23,20 +23,26 @@
 .next {
   cursor: pointer;
   position: absolute;
-  top: -25%;
-  right: -30px;
-  padding: 10px;
-  background-color: #000;
-  border-radius: 50%;
+  top: -40px;
+  right: 30px;
   align-items: center;
+  svg {
+    &:hover {
+      transition: fill .2s ease-in-out;
+      fill: #fc4337;
+    }
+  }
 }
 .prev {
   cursor: pointer;
   position: absolute;
-  padding: 10px;
-  background-color: #000;
-  border-radius: 50%;
   align-items: center;
-  top: -25%;
+  top: -40px;
   right: 60px;
+  svg {
+    &:hover {
+      transition: fill .2s ease-in-out;
+      fill: #fc4337;
+    }
+  }
 }

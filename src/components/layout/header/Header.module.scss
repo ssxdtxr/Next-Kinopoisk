@@ -11,7 +11,7 @@ $assets: lighten(#fc4337, 5%);
   background-color: #101010;
   padding: 20px 200px;
   color: #fff;
-  z-index: 2;
+  z-index: 3;
   box-shadow: 0 1px 0 hsla(0,0%,100%,.16);
   .logo {
     display: flex;
@@ -43,6 +43,7 @@ $assets: lighten(#fc4337, 5%);
     }
     .search {
       display: flex;
+      position: relative;
       align-items: center;
       background-color: #fff;
       gap: 5px;

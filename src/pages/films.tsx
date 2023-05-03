@@ -4,7 +4,6 @@ import {http} from "@/http/http";
 import {IFilm} from "@/types/IFilm";
 export async function getServerSideProps() {
     const {data: filmsData} = await http.get("/v2.2/films")
-    console.log(filmsData);
     return {props: {filmsData}}
 }
 export interface IFilmsPages {

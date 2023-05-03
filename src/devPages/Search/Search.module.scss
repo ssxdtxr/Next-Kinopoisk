@@ -1,0 +1,56 @@
+.main {
+  background-color: #101010;
+  padding: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+
+  .mainTop {
+    display: flex;
+    flex-direction: column;
+    padding: 0 100px;
+    gap: 20px;
+
+    .title {
+      border-left: 4px solid #fc4337;
+      padding-left: 10px;
+    }
+
+    input {
+      padding: 14px 20px;
+      font-size: 18px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 10px;
+
+      &::placeholder {
+        color: gray;
+      }
+    }
+  }
+
+  .item {
+    padding: 30px 100px;
+
+    .notFound {
+      padding: 20px;
+      width: 100%;
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      strong {
+        font-size: 20px;
+      }
+
+      ul {
+        margin: 20px 0 20px 30px;
+        list-style-type: inherit;
+
+        li {
+          padding: 5px 0;
+        }
+      }
+    }
+  }
+}
