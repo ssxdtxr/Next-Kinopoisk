@@ -50,7 +50,7 @@ export const SearchDropDown: FC<ISearchDropDown> = ({ films, isOpen, value }) =>
               </Link>
             ))
           }
-          <Link className={styles.all} href={`/search/${value}`}>Посмотреть все</Link>
+          <Link className={styles.all} href={`/search/${value}/1`}>Посмотреть все</Link>
         </motion.div>
       }
     </AnimatePresence>

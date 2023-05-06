@@ -7,7 +7,8 @@ import { http } from '@/http/http';
 import { IFilm } from '@/types/IFilm';
 import { SearchDropDown } from '@/components/SearchDropDown/SearchDropDown';
 import { IInfoIFilm } from '@/types/IInfoIFilm';
-import useDebounse from '@/hooks/useDebounse';
+import useDebounce from '@/hooks/useDebounce';
+import { useRouter } from 'next/router';
 
 const logo = <svg width={50} height={50} viewBox='0 -25.32 92.112 92.112' xmlns='http://www.w3.org/2000/svg'>
   <g id='_3d_movie_glasses' data-name='3d movie glasses' transform='translate(-457.485 -448.002)'>
@@ -30,10 +31,12 @@ const logo = <svg width={50} height={50} viewBox='0 -25.32 92.112 92.112' xmlns=
 </svg>;
 
 export const Header = () => {
+  const router = useRouter();
+  console.log(router);
   const [searchValue, setSearchValue] = useState<string>('');
   const [films, setFilms] = useState<IInfoIFilm[]>([]);
   const [isOpenDropDown, setIsOpenDropDown] = useState<boolean>(false);
-  const debouncedSearchValue = useDebounse(searchValue);
+  const debouncedSearchValue = useDebounce(searchValue);
 
   const changeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
@@ -63,11 +66,11 @@ export const Header = () => {
       <nav className={styles.nav}>
         <ul className={styles.navItem}>
           <Link href='/'>
-            <li>Home</li>
+            <li className={router.asPath == `/` ? styles.active : ''}>Home</li>
           </Link>
           <li>About</li>
-          <Link href='/films'>
-            <li>Films</li>
+          <Link href='/films/1'>
+            <li className={router.asPath == `/films/${router.query.page}` ? styles.active : ''}>Films</li>
           </Link>
           <li>Contacts</li>
         </ul>

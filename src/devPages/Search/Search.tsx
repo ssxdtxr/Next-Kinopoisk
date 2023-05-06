@@ -30,7 +30,7 @@ export const Search: FC<ISearchPage> = ({ filmsData, keyword }) => {
       <Container>
         <div className={styles.main}>
           <div className={styles.mainTop}>
-            <h2 className={styles.title}>Результаты по запросу {keyword}</h2>
+            <h2 className={styles.title}>Результаты по запросу: <span>{keyword}</span></h2>
             <input placeholder='Поиск...' type='text' />
           </div>
           <div className={styles.item}>
@@ -45,8 +45,8 @@ export const Search: FC<ISearchPage> = ({ filmsData, keyword }) => {
                     custom={index + 1}
                     animate={'visible'}
                     whileTap={{ scale: .9, borderRadius: '10px', backgroundColor: '#fff' }}
-                  />)
-                :
+                  />,
+                ) :
                 <div className={styles.notFound}>
                   <h1>По этому запросу ничего не найдено</h1>
                   <strong>Предлагаем Вам:</strong>

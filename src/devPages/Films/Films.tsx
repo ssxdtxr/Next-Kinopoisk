@@ -5,10 +5,10 @@ import styles from './Films.module.scss';
 import { Container } from '@/components/container/Container';
 import { Layout } from '@/components/layout/Layout';
 import { Pagination } from '@/components/Pagination/Pagination';
-import { Select } from '@/components/Select/Select';
 import { IInfoIFilm } from '@/types/IInfoIFilm';
 import { motion } from 'framer-motion';
 import { CardSkeleton } from '@/components/CardSkeleton/CardSkeleton';
+import { SortSelects } from '@/components/SortSelects/SortSelects';
 
 interface IFilms {
   filmsData: IFilm;
@@ -63,7 +63,7 @@ export const Films: FC<IFilms> = ({ filmsData }) => {
             >
               Афиша кино
             </motion.h2>
-            <Select filmsData={filmsData} setFilms={setFilms} />
+            <SortSelects filmsData={filmsData} setFilms={setFilms} />
           </div>
           <div className={styles.item}>
             {

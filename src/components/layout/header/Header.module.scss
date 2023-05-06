@@ -12,35 +12,49 @@ $assets: lighten(#fc4337, 5%);
   padding: 20px 200px;
   color: #fff;
   z-index: 3;
-  box-shadow: 0 1px 0 hsla(0,0%,100%,.16);
+  box-shadow: 0 1px 0 hsla(0, 0%, 100%, .16);
+
   .logo {
     display: flex;
     align-items: center;
+
     h1 {
       text-transform: uppercase;
       text-shadow: 0 0 5px #b393d3, 0 0 10px #b393d3, 0 0 10px #b393d3, 0 0 20px #b393d3;
     }
   }
+
   .nav {
     display: flex;
     gap: 20px;
+
     .navItem {
       display: flex;
       gap: 20px;
       align-items: center;
+
       li {
         cursor: pointer;
         font-size: 20px;
         transition: color .15s ease-in-out;
+        padding: 5px 10px;
+
         &:hover {
-          color: $assets;
+          opacity: .7;
         }
+
         &:active {
-          color: #fff;
-          border-bottom: 2px solid $assets;
+          background-color: #fc4337;
+          border-radius: 8px;
         }
       }
+
+      .active {
+        background-color: #fc4337;
+        border-radius: 8px;
+      }
     }
+
     .search {
       display: flex;
       position: relative;
@@ -50,11 +64,13 @@ $assets: lighten(#fc4337, 5%);
       padding: 0 2px;
       width: 200px;
       border-radius: 10px;
+
       input {
         width: 90%;
         font-size: 18px;
         padding: 10px;
         margin-left: 5px;
+
         &:focus {
           &::placeholder {
             opacity: 0;
