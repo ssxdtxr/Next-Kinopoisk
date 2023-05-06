@@ -1,48 +1,70 @@
 .select {
   display: flex;
-  background-color: #fff;
-  color: #191919;
-  width: 250px;
+  background-color: #000;
+  color: #fff;
+  width: 200px;
   flex-direction: column;
   position: relative;
   z-index: 2;
+  border-radius: 10px;
+  padding: 7px;
+
+
   .selectHeader {
     display: flex;
-    border: 1px solid #000;
     cursor: pointer;
     justify-content: space-between;
+    background-color: #1e212a;
+    border: 1px solid #1e212a;
+    border-radius: 10px;
+
     .icon {
       display: flex;
       align-items: center;
       width: 40px;
       height: 40px;
     }
+
     .selectCurr {
       font-size: 18px;
       line-height: 24px;
       padding: 8px;
     }
   }
+
   .selectBody,
   .active {
     display: none;
     position: absolute;
-    background-color: #fff;
-    border: 1px solid #000;
+    background-color: #000;
+    color: lighten(#1e212a, 40%);
     border-top: none;
     left: 0;
     right: 0;
-    top: 100%;
+    top: 90%;
+    font-size: 18px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+
     .item {
       cursor: pointer;
       font-size: 16px;
-      padding: 8px;
+      padding: 12px;
+
       &:hover {
-        background-color: #f2f2f2;
+        color: #2974ff;
       }
     }
   }
+
   .active {
     display: block;
   }
+
+  .activeSelectHeader {
+    border-color: #2974ff;
+  }
 }
+
+
